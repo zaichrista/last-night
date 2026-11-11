@@ -273,6 +273,8 @@ const mini=(i,mode)=>{
   return `<button class="mc" data-act="recipe" data-r="${i}"><span class="mn">${esc(r.n)}</span><span><span class="lb s">${esc(meta)}</span><span class="mb"><i style="width:${pct(e)}%"></i></span></span></button>`;
 };
 
+const healthBar=fr=>`<div class="bar" role="meter" aria-label="Fridge freshness" aria-valuemin="0" aria-valuemax="100" aria-valuenow="${fr}"><i style="width:${Math.max(fr,8)}%"></i><b>${fr}</b><span class="lb">% freshness</span></div>`;
+
 function renderTonight(c){
   const {items,top,near,first,fr,lit,readyIdx,expired}=c;
   const date=new Date().toLocaleDateString("en-GB");
@@ -297,7 +299,7 @@ function renderTonight(c){
     ${also.length?`<div class="car">${also.map(i=>mini(i,"ready")).join("")}</div>`:`<p class="note">Nothing else is ready right now.</p>`}
     <div class="sl"><span>Use these first</span>${expired?`<span class="lb al">${plural(expired,"item")} past the date</span>`:`<span>${plural(items.length,"item")}</span>`}</div>
     <div class="strip">${soon.map(it=>{const d=dleft(it);return `<button class="chip use${d<0?" past":""}" data-act="edit" data-id="${esc(it.id)}">${d>=0&&d<=urg()?'<i class="d"></i>':""}${esc(it.name.toLowerCase())} <b>${shortDays(d)}</b></button>`}).join("")}</div>
-    <div class="bar"><i style="width:${Math.max(fr,8)}%"></i><b>${fr}</b><span class="lb">% freshness</span></div>
+    ${healthBar(fr)}
   </div>`;
   return {body};
 }

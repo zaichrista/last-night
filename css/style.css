@@ -250,7 +250,7 @@ button.chip.miss:hover{background:#fdf1e8}
   .screen{grid-column:2;grid-row:1;overflow:hidden}
   .nav{grid-column:1 / -1;grid-row:2}
   .hero .ht{bottom:40px;left:24px;right:24px}
-  .hero .rays,.hero:not([data-s=tonight]) .rays{right:24px;bottom:120px;width:180px;height:100px}
+  .hero .rays,.hero:not([data-s=tonight]) .rays{left:50%;top:50%;right:auto;bottom:auto;transform:translate(-50%,-50%);width:180px;height:100px}
   .hero[data-s=tonight] .ht{opacity:1;transform:none}
   .hero[data-s=tonight] .ht::before{content:"A little less waste.";display:block;font-size:36px;line-height:1.05;letter-spacing:-.04em}
   .hero[data-s=tonight] .ht::after{content:"Something good for tonight.";display:block;margin-top:12px;font-size:15px}
@@ -261,4 +261,4 @@ button.chip.miss:hover{background:#fdf1e8}
   .body::-webkit-scrollbar-thumb,.slide::-webkit-scrollbar-thumb,.sheet::-webkit-scrollbar-thumb{background:#ccc7c0;border-radius:6px}
 }
 @media(pointer:coarse){.step button{width:44px;height:44px}.chip.pick,.link{min-height:44px;align-content:center}}
-@media(max-height:500px){.stage{padding-top:env(safe-area-inset-top);padding-bottom:0}.hero,.hero:not([data-s=tonight]){height:70px}.nav{padding-top:4px;padding-bottom:max(4px,env(safe-area-inset-bottom))}}
+@media(max-height:500px) and (max-width:959px){.stage{padding-top:env(safe-area-inset-top);padding-bottom:0}.hero,.hero:not([data-s=tonight]){height:70px}.nav{padding-top:4px;padding-bottom:max(4px,env(safe-area-inset-bottom))}}
